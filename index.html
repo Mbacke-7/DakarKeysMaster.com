@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260701-05-1ec4861"}');</script>
-  <script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dakar Keys Master</title>
@@ -15,7 +13,7 @@
     .toast { animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s; }
     @keyframes slideIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     @keyframes fadeOut { to { opacity: 0; } }
-    .room-card { transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; }
+    .room-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .room-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
     .gallery-overlay { backdrop-filter: blur(4px); }
     /* Modern form enhancements */
@@ -54,18 +52,33 @@
       border: none;
       display: block;
     }
-    .play-overlay {
-      position: absolute;
-      inset: 0;
+    /* Location section headers */
+    .location-heading {
       display: flex;
       align-items: center;
-      justify-content: center;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s ease;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
     }
-    .room-card:hover .play-overlay {
-      opacity: 0.8;
+    .location-heading::before,
+    .location-heading::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(180,83,9,0.25);
+    }
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      background: rgba(180,83,9,0.08);
+      border: 1px solid rgba(180,83,9,0.18);
+      color: rgb(120,53,15);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
     .gallery-video {
       width: 100%;
@@ -75,7 +88,6 @@
       background: #000;
     }
   </style>
-  <script src="/_sdk/0b3af1c300e720aa.resizing_sdk.js" type="text/javascript" integrity="sha512-nX1P6oXZmEY5wCI2lUVg3BwKu1cr0yi+ZpXgZ0Yn90vkSwvpmyzBMvOyD6VLJUtBwFI2dSrw1b6OvORxSggw3w=="></script>
 </head>
 <body data-template-id="__page-root" class="w-full min-h-screen" style="background: linear-gradient(rgb(255, 251, 235), rgb(255, 255, 255));">
 
@@ -124,62 +136,67 @@
   <main class="max-w-6xl mx-auto px-4 py-16">
     <!-- Rooms -->
     <section class="mb-20">
-      <h2 data-template-id="rooms-title" class="text-center mb-12" style="color: rgb(120, 53, 15); font-weight: 600; font-style: normal; font-size: 24px;">Nos Chambres</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Room Ventilée -->
-        <div data-template-id="room-ventilee-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="ventilee" style="background: rgb(255, 255, 255);">
-          <iframe class="room-video" src="https://www.youtube.com/embed/NlgQl81ftZw?feature=share" title="YouTube Short" frameborder="0" allowfullscreen></iframe>
-          <div class="play-overlay">
-            <div class="bg-black/40 rounded-full w-12 h-12 flex items-center justify-center text-white">
-              <i data-lucide="play" style="width:20px;height:20px"></i>
+      <h2 data-template-id="rooms-title" class="text-center mb-10" style="color: rgb(120, 53, 15); font-weight: 600; font-style: normal; font-size: 24px;">Nos Chambres</h2>
+
+      <!-- ============ HLM6 ============ -->
+      <div class="mb-14">
+        <div class="location-heading">
+          <span class="location-badge"><i data-lucide="map-pin" style="width:14px;height:14px"></i> HLM6 — Cité Port</span>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <!-- Room Ventilée (HLM6) -->
+          <div data-template-id="room-ventilee-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="ventilee" style="background: rgb(255, 255, 255);">
+            <iframe class="room-video" src="https://www.youtube.com/embed/NlgQl81ftZw" title="Chambre Ventilée — HLM6 Cité Port" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <div class="p-5">
+              <h3 data-template-id="room-ventilee-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Chambre Ventilée, HLM6 Cité Port</h3>
+              <p data-template-id="room-ventilee-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">12 500 FCFA / nuit</p>
+              <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo</p>
             </div>
           </div>
-          <div class="p-5">
-            <h3 data-template-id="room-ventilee-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Chambre Ventilée, Hlm6 Cite Port</h3>
-            <p data-template-id="room-ventilee-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">12 500 FCFA / nuit</p>
-            <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo </p>
+          <!-- Room Climatisée (HLM6) -->
+          <div data-template-id="room-climatisee-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="climatisee" style="background: rgb(255, 255, 255);">
+            <iframe class="room-video" src="https://www.youtube.com/embed/8ml_NfPI9mE" title="Chambre Climatisée — HLM6 Cité Port" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <div class="p-5">
+              <h3 data-template-id="room-climatisee-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Chambre Climatisée, HLM6 Cité Port</h3>
+              <p data-template-id="room-climatisee-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">17 500 FCFA / nuit</p>
+              <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo</p>
+            </div>
+          </div>
+          <!-- Room Mini Studio (HLM6) -->
+          <div data-template-id="room-studio-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="studio" style="background: rgb(255, 255, 255);">
+            <iframe class="room-video" src="https://www.youtube.com/embed/ltt7NPZRtEg" title="Mini-Studio — HLM6 Cité Port" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <div class="p-5">
+              <h3 data-template-id="room-studio-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Mini-Studio, HLM6 Cité Port (Climatisée)</h3>
+              <p data-template-id="room-studio-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">23 000 FCFA / nuit</p>
+              <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo</p>
+            </div>
           </div>
         </div>
-        <!-- Room Climatisée -->
-        <div data-template-id="room-climatisee-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="climatisee" style="background: rgb(255, 255, 255);">
-          <iframe class="room-video" src="https://www.youtube.com/embed/8ml_NfPI9mE?feature=share" title="YouTube Short" frameborder="0" allowfullscreen></iframe>
-          <div class="play-overlay">
-            <div class="bg-black/40 rounded-full w-12 h-12 flex items-center justify-center text-white">
-              <i data-lucide="play" style="width:20px;height:20px"></i>
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 data-template-id="room-climatisee-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Chambre Climatisée, Hlm6 Cite Port</h3>
-            <p data-template-id="room-climatisee-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">17 500 FCFA / nuit</p>
-            <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo </p>
-          </div>
+      </div>
+
+      <!-- ============ Point E ============ -->
+      <div>
+        <div class="location-heading">
+          <span class="location-badge"><i data-lucide="map-pin" style="width:14px;height:14px"></i> Point E</span>
         </div>
-        <!-- Room Mini Studio -->
-        <div data-template-id="room-studio-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="studio" style="background: rgb(255, 255, 255);">
-          <iframe class="room-video" src="https://www.youtube.com/embed/ltt7NPZRtEg?feature=share" title="YouTube Short" frameborder="0" allowfullscreen></iframe>
-          <div class="play-overlay">
-            <div class="bg-black/40 rounded-full w-12 h-12 flex items-center justify-center text-white">
-              <i data-lucide="play" style="width:20px;height:20px"></i>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <!-- Room Climatisée (Point E) -->
+          <div data-template-id="room-climatisee-point-e-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="climatisee-point-e" style="background: rgb(255, 255, 255);">
+            <iframe class="room-video" src="https://www.youtube.com/embed/0j6ikl85P60" title="Chambre Climatisée — Point E" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <div class="p-5">
+              <h3 data-template-id="room-climatisee-point-e-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Chambre Climatisée, Point E</h3>
+              <p data-template-id="room-climatisee-point-e-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">25 000 FCFA / nuit</p>
+              <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo</p>
             </div>
           </div>
-          <div class="p-5">
-            <h3 data-template-id="room-studio-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Mini-Studio, Hlm6 Cite Port (Climatisée)</h3>
-            <p data-template-id="room-studio-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">23 000 FCFA / nuit</p>
-            <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo </p>
-          </div>
-        </div>
-        <!-- Room Studio de Luxe -->
-        <div data-template-id="room-studio-de-luxe-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="studio-de-luxe" style="background: rgb(255, 255, 255);">
-          <iframe class="room-video" src="https://www.youtube.com/embed/-UfTQEBKrgA?feature=share" title="YouTube Short" frameborder="0" allowfullscreen></iframe>
-          <div class="play-overlay">
-            <div class="bg-black/40 rounded-full w-12 h-12 flex items-center justify-center text-white">
-              <i data-lucide="play" style="width:20px;height:20px"></i>
+          <!-- Studio (Point E) -->
+          <div data-template-id="room-studio-point-e-card" class="room-card rounded-2xl overflow-hidden shadow-lg relative" data-room="studio-point-e" style="background: rgb(255, 255, 255);">
+            <iframe class="room-video" src="https://www.youtube.com/embed/9L9OGN2pzOs" title="Studio — Point E" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <div class="p-5">
+              <h3 data-template-id="room-studio-point-e-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Studio, Point E (Climatisé)</h3>
+              <p data-template-id="room-studio-point-e-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">40 000 FCFA / nuit</p>
+              <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo</p>
             </div>
-          </div>
-          <div class="p-5">
-            <h3 data-template-id="room-studio-de-luxe-name" class="font-semibold" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 18px;">Studio de Luxe, Mermoz (Climatisée)</h3>
-            <p data-template-id="room-studio-de-luxe-price" class="mt-2 font-bold text-lg" style="color: rgb(180, 83, 9); font-weight: 400; font-style: normal; font-size: 20px;">40 000 FCFA / nuit</p>
-            <p class="text-xs text-amber-600 mt-2 flex items-center gap-1"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Voir la vidéo </p>
           </div>
         </div>
       </div>
@@ -191,7 +208,9 @@
       <form action="https://formsubmit.co/mkcr77777@email.com" method="POST" id="booking-form" class="max-w-lg mx-auto space-y-5">
         <div>
           <label data-template-id="label-name" class="block mb-1 font-medium" for="client-name" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 16px;">Votre nom</label>
-          <input id="client-name" type="text" name="client-name" required class="modern-input w-full rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://yourdomain.co/thanks.html"><input type="hidden" name="_template" value="table">
+          <input id="client-name" type="text" name="client-name" required class="modern-input w-full rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
         </div>
         <div>
           <label data-template-id="label-phone" class="block mb-1 font-medium" for="client-phone" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 16px;">Téléphone</label>
@@ -201,37 +220,23 @@
           <label data-template-id="label-room" class="block mb-1 font-medium" for="client-room" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 16px;">Type de chambre</label>
           <select id="client-room" name="client-room" required class="modern-input w-full rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400 bg-white">
             <option value="">-- Choisir --</option>
-            <option value="Ventilée (12 500 FCFA)">Ventilée (12 500 FCFA)</option>
-            <option value="Climatisée (17 500 FCFA)">Climatisée (17 500 FCFA)</option>
-            <option value="Mini Studio (23 000 FCFA)">Mini Studio (23 000 FCFA)</option>
-            <option value="Studio de Luxe (40 000 FCFA)">Studio de Luxe (40 000 FCFA)</option>
+            <optgroup label="HLM6 — Cité Port">
+              <option value="Ventilée - HLM6 (12 500 FCFA)">Chambre Ventilée (12 500 FCFA)</option>
+              <option value="Climatisée - HLM6 (17 500 FCFA)">Chambre Climatisée (17 500 FCFA)</option>
+              <option value="Mini Studio - HLM6 (23 000 FCFA)">Mini Studio (23 000 FCFA)</option>
+            </optgroup>
+            <optgroup label="Point E">
+              <option value="Climatisée - Point E (25 000 FCFA)">Chambre Climatisée (25 000 FCFA)</option>
+              <option value="Studio - Point E (40 000 FCFA)">Studio (40 000 FCFA)</option>
+            </optgroup>
           </select>
         </div>
         <div>
-          <label class="block mb-1 font-medium" for="client-room-number" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 16px;">Numéro de chambre</label>
+          <label data-template-id="label-room-number" class="block mb-1 font-medium" for="client-room-number" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 16px;">Numéro de chambre</label>
           <select id="client-room-number" name="client-room-number" required class="modern-input w-full rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400 bg-white">
             <option value="">-- Choisir type d'abord --</option>
           </select>
         </div>
-        <script>
-          const roomNumbers = {
-            'Ventilée (12 500 FCFA)': ['1a','1b','2a','2b','3a','3b','4a'],
-            'Climatisée (17 500 FCFA)': ['1c','1d','1e','1f','2c','2d','2e','2f','3c','3d','3e','3f'],
-            'Mini Studio (23 000 FCFA)': ['4s'],
-            'Studio de Luxe (40 000 FCFA)': ['5s']
-          };
-          document.getElementById('client-room').addEventListener('change', function() {
-            const sel = document.getElementById('client-room-number');
-            sel.innerHTML = '<option value="">-- Choisir un étage --</option>';
-            const nums = roomNumbers[this.value] || [];
-            nums.forEach(n => {
-              const opt = document.createElement('option');
-              opt.value = n; opt.textContent = 'Chambre ' + n.toUpperCase();
-              sel.appendChild(opt);
-            });
-            calculateTotal();
-          });
-        </script>
         <div>
           <label data-template-id="label-date" class="block mb-1 font-medium" for="client-date" style="color: rgb(120, 53, 15); font-weight: 400; font-style: normal; font-size: 16px;">Date d'arrivée</label>
           <input id="client-date" type="date" name="client-date" required class="modern-input w-full rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400">
@@ -262,39 +267,41 @@
     <section class="mt-16">
       <h2 data-template-id="reservations-title" class="text-center mb-6" style="color: rgb(120, 53, 15); font-weight: 600; font-style: normal; font-size: 24px;">Règlement Intérieur</h2>
       <div id="reservations-list" class="space-y-3">
-        <p>
-          <li data-template-id="internal-law" class="text-center" style="color: black; font-weight: bold; font-style: italic; font-size: 16px; list-style: none;"><ul>Interdiction de Fumer</ul></li>
-          <li data-template-id="internal-law" class="text-center" style="color: black; font-weight: bold; font-style: italic; font-size: 16px; list-style: none;"><ul>2 Personnes Maximum Autorisées par Chambre (4 max dans le studio)</ul></li>
-          <li data-template-id="internal-law" class="text-center" style="color: black; font-weight: bold; font-style: italic; font-size: 16px; list-style: none;"><ul>Interdiction de Mineurs dans la Résidence</ul></li>
-        </p>
+        <ul class="space-y-3">
+          <li data-template-id="internal-law" class="text-center" style="color: black; font-weight: bold; font-style: italic; font-size: 16px; list-style: none;">Interdiction de Fumer</li>
+          <li data-template-id="internal-law" class="text-center" style="color: black; font-weight: bold; font-style: italic; font-size: 16px; list-style: none;">2 Personnes Maximum Autorisées par Chambre (4 max dans le studio)</li>
+          <li data-template-id="internal-law" class="text-center" style="color: black; font-weight: bold; font-style: italic; font-size: 16px; list-style: none;">Interdiction de Mineurs dans la Résidence</li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer data-template-id="footer-section" class="footer text-center py-8" style="background: rgb(255, 251, 235);">
-    <p data-template-id="footer-text" class="text" style="color: rgb(146, 64, 14); font-weight: 400; font-style: normal; font-size: 14px;">© 2026 Onalo Hotel — HLM, Dakar 🇸🇳</p>
+    <p data-template-id="footer-text" class="text" style="color: rgb(146, 64, 14); font-weight: 400; font-style: normal; font-size: 14px;">© 2026 Dakr Keys Master, Dakar 🇸🇳</p>
   </footer>
 
-  <template id="reservation-template">
-    <div data-template-id="reservation-card" class="flex items-center justify-between p-4 rounded-xl">
-      <div>
-        <span data-template-id="reservation-info" class="font-medium"></span>
-      </div>
-      <button data-template-id="reservation-delete" class="button px-3 py-1 rounded-lg text-sm" aria-label="Supprimer"></button>
-    </div>
-  </template>
+  <!-- Toast -->
+  <div id="toast" class="hidden fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-amber-900 text-white px-5 py-3 rounded-xl shadow-lg text-sm toast"></div>
 
-  <script src="/_sdk/a57e1ce6823cfcdc.editing_sdk.js" integrity="sha512-kNK9Lfxs3JxWT717gHDYE+wlveaAj/VZXdy7sZdJAoa7Ps3DhgunLxr4od2Pr1ZqeSpJV2bST0X2ZhdP0AnInQ=="></script>
-  <script src="/_sdk/0179d719c431a79e.data_sdk.js" integrity="sha512-OsRvJkI5GkC3MJQcgotQYotpzrMSX415GiKKgvYdxQEEkzD/fdchShO2FMSy0PJr/tiINMXOk5Vl2zAgg6bUiA=="></script>
   <script>
     let reservations = [];
 
+    // Room numbers by room type (floors only)
+    const roomNumbers = {
+      'Ventilée - HLM6 (12 500 FCFA)': ['1e étage', '2e étage', '3e étage'],
+      'Climatisée - HLM6 (17 500 FCFA)': ['1e étage', '2e étage', '3e étage'],
+      'Mini Studio - HLM6 (23 000 FCFA)': ['4e étage'],
+      'Climatisée - Point E (25 000 FCFA)': ['Point E'],
+      'Studio - Point E (40 000 FCFA)': ['Point E']
+    };
+
     // Price calculation
     const roomPrices = {
-      'Ventilée (12 500 FCFA)': 12500,
-      'Climatisée (17 500 FCFA)': 17500,
-      'Mini Studio (23 000 FCFA)': 23000,
-      'Studio de Luxe (40 000 FCFA)': 40000
+      'Ventilée - HLM6 (12 500 FCFA)': 12500,
+      'Climatisée - HLM6 (17 500 FCFA)': 17500,
+      'Mini Studio - HLM6 (23 000 FCFA)': 23000,
+      'Climatisée - Point E (25 000 FCFA)': 25000,
+      'Studio - Point E (40 000 FCFA)': 40000
     };
 
     function calculateTotal() {
@@ -317,10 +324,26 @@
       }
     }
 
-    // Real-time listeners for price calculation
+    // Room selector → floor options
     const roomSelectEl = document.getElementById('client-room');
+    const roomNumberEl = document.getElementById('client-room-number');
     const nightsInputEl = document.getElementById('client-nights');
-    if (roomSelectEl) roomSelectEl.addEventListener('change', calculateTotal);
+
+    if (roomSelectEl) {
+      roomSelectEl.addEventListener('change', function() {
+        const sel = roomNumberEl;
+        sel.innerHTML = '<option value="">-- Choisir un étage --</option>';
+        const nums = roomNumbers[this.value] || [];
+        nums.forEach(n => {
+          const opt = document.createElement('option');
+          opt.value = n;
+          opt.textContent = n.charAt(0).toUpperCase() + n.slice(1);
+          sel.appendChild(opt);
+        });
+        calculateTotal();
+      });
+    }
+
     if (nightsInputEl) {
       nightsInputEl.addEventListener('input', function() {
         // Enforce max 30 nights
@@ -333,59 +356,6 @@
       });
     }
 
-    // Video assignments for each room
-    const roomVideos = {
-      ventilee: 'C:\\Users\\bmd\\Pictures\\VIDEO-2026-04-02-22-21-37.mp4',
-      climatisee: 'C:\\Users\\bmd\\Pictures\\VIDEO-2026-04-02-22-21-37_1.mp4',
-      studio: 'C:\\Users\\bmd\\Pictures\\VIDEO-2026-04-03-07-03-42.mp4',
-      'studio-de-luxe': 'C:\\Users\\bmd\\Pictures\\VIDEO-2026-07-31-18-58-00.mp4'
-    };
-
-    function openGallery(room) {
-      const video = document.getElementById('gallery-video');
-      if (video) {
-        video.src = roomVideos[room] || '';
-        video.load();
-        video.play();
-      }
-      const modal = document.getElementById('gallery-modal');
-      if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-      }
-    }
-
-    function closeGallery() {
-      const video = document.getElementById('gallery-video');
-      if (video) {
-        video.pause();
-        video.src = '';
-      }
-      const modal = document.getElementById('gallery-modal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-      }
-    }
-
-    const galleryCloseBtn = document.getElementById('gallery-close');
-    if (galleryCloseBtn) galleryCloseBtn.addEventListener('click', closeGallery);
-    const galleryModalEl = document.getElementById('gallery-modal');
-    if (galleryModalEl) {
-      galleryModalEl.addEventListener('click', (e) => {
-        if (e.target === e.currentTarget) closeGallery();
-      });
-    }
-
-    // Attach click handlers to room cards (open gallery on click)
-    document.querySelectorAll('.room-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('iframe')) return;
-        const room = card.dataset.room;
-        if (room) openGallery(room);
-      });
-    });
-
     // Toast
     function showToast(msg) {
       const t = document.getElementById('toast');
@@ -395,136 +365,28 @@
       setTimeout(() => t.classList.add('hidden'), 3000);
     }
 
-    // Reservations
-    function renderReservations() {
-      const list = document.getElementById('reservations-list');
-      if (!list) return;
-      const empty = list.querySelector('[data-template-id="no-reservations"]');
-      const existing = list.querySelectorAll('.res-item');
-      const map = new Map([...existing].map(el => [el.dataset.id, el]));
-
-      if (reservations.length === 0) {
-        if (empty) empty.style.display = '';
-        map.forEach(el => el.remove());
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      // Keep native formsubmit delivery working; validate floor + nights first
+      const nights = parseInt(document.getElementById('client-nights').value || '0', 10);
+      if (!document.getElementById('client-room-number').value) {
+        e.preventDefault();
+        showToast('Veuillez choisir un étage');
         return;
       }
-      if (empty) empty.style.display = 'none';
-
-      reservations.forEach(r => {
-        const text = `${r.client_name} — ${r.room_type} — ${r.check_in_date} (${r.nights} nuit${r.nights > 1 ? 's' : ''})`;
-        if (map.has(r.__backendId)) {
-          const el = map.get(r.__backendId);
-          const textEl = el.querySelector('.res-text');
-          if (textEl) textEl.textContent = text;
-          map.delete(r.__backendId);
-        } else {
-          const tpl = document.getElementById('reservation-template');
-          if (!tpl) return;
-          const clone = tpl.content.cloneNode(true);
-          const wrapper = clone.querySelector('[data-template-id="reservation-card"]');
-          if (!wrapper) return;
-          wrapper.classList.add('res-item');
-          wrapper.dataset.id = r.__backendId;
-          const info = clone.querySelector('[data-template-id="reservation-info"]');
-          if (info) {
-            info.classList.add('res-text');
-            info.textContent = text;
-          }
-          const del = clone.querySelector('[data-template-id="reservation-delete"]');
-          if (del) {
-            del.textContent = '✕';
-            del.addEventListener('click', () => deleteReservation(r));
-          }
-          list.appendChild(clone);
-        }
-      });
-      map.forEach(el => el.remove());
-    }
-
-    async function deleteReservation(record) {
-      if (!window.dataSdk) return;
-      const result = await window.dataSdk.delete(record);
-      if (!result.isOk) showToast('Erreur lors de la suppression');
-    }
-
-    const handler = {
-      onDataChanged(data) {
-        reservations = data;
-        renderReservations();
+      if (nights > 30) {
+        e.preventDefault();
+        showToast('Maximum 30 nuits autorisées');
       }
-    };
-
-    document.getElementById('booking-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (reservations.length >= 999) { showToast('Limite atteinte (999 réservations)'); return; }
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.disabled = true; btn.style.opacity = '0.6';
-
-      const roomNumEl = document.getElementById('client-room-number');
-      const nightsEl = document.getElementById('client-nights');
-      const phoneEl = document.getElementById('client-phone');
-      const nameEl = document.getElementById('client-name');
-      const roomEl = document.getElementById('client-room');
-      const dateEl = document.getElementById('client-date');
-
-      const result = await window.dataSdk.create({
-        client_name: nameEl ? nameEl.value : '',
-        client_phone: phoneEl ? phoneEl.value : '',
-        room_type: roomEl ? roomEl.value : '',
-        room_number: roomNumEl ? roomNumEl.value : '',
-        check_in_date: dateEl ? dateEl.value : '',
-        nights: parseInt(nightsEl ? nightsEl.value : 0, 10),
-        created_at: new Date().toISOString()
-      });
-
-      btn.disabled = false; btn.style.opacity = '1';
-      if (result.isOk) { showToast('Réservation confirmée ✓'); e.target.reset(); calculateTotal(); }
-      else { showToast('Erreur, veuillez réessayer'); }
     });
 
-    (async () => {
+    (function () {
       const today = new Date().toISOString().split('T')[0];
       const dateEl = document.getElementById('client-date');
       if (dateEl) dateEl.setAttribute('min', today);
-      if (window.dataSdk) {
-        const r = await window.dataSdk.init(handler);
-        if (!r.isOk) showToast('Erreur de connexion');
-      }
       if (typeof lucide !== 'undefined') lucide.createIcons();
-      // Initialize total price display
       calculateTotal();
-    })();
-  </script>
-
-  <script>
-    (function(){
-      function c(){
-        var b=a.contentDocument||a.contentWindow.document;
-        if(b){
-          var d=b.createElement('script');
-          d.innerHTML="window.__CF$cv$params={r:'a1474ef782cb51ff',t:'MTc4MjkyODgwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-          b.getElementsByTagName('head')[0].appendChild(d)
-        }
-      }
-      if(document.body){
-        var a=document.createElement('iframe');
-        a.height=1;a.width=1;
-        a.style.position='absolute';
-        a.style.top=0;a.style.left=0;
-        a.style.border='none';
-        a.style.visibility='hidden';
-        document.body.appendChild(a);
-        if('loading'!==document.readyState)c();
-        else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
-        else{
-          var e=document.onreadystatechange||function(){};
-          document.onreadystatechange=function(b){
-            e(b);
-            'loading'!==document.readyState&&(document.onreadystatechange=e,c())
-          }
-        }
-      }
     })();
   </script>
 </body>
 </html>
+
